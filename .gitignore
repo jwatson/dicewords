@@ -1,0 +1,5 @@
+*.asc
+*.json
+*.py[co]
+*.sw?
+.DS_Store
