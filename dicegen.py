@@ -22,9 +22,7 @@ def roll_dice():
 
     pool = randhash()
 
-    # Pick a random byte in the pool to seed our dice roll. It's OK
-    # that we're using the Mersenne Twister here, since the source
-    # data is reasonably random and obfuscated.
+    # Pick a random byte in the pool to seed our dice roll.
     index = random.SystemRandom().randint(0, len(pool) - 1)
     byte = ord(pool[index])
     return (byte % 6) + 1
@@ -33,10 +31,7 @@ def roll_dice():
 def generate_key(n):
     """ Generate a string key of `n` dice rolls. """
 
-    rolls = []
-    for x in range(0, n):
-        rolls.append(str(roll_dice()))
-
+    rolls = [str(roll_dice()) for x in range(0, n)]
     return "".join(rolls)
 
 
